@@ -1,0 +1,8 @@
+# Docker
+Dockerfile
+docker-compose.yml
+docker-compose.override.yml
+nginx.conf
+
+# Docker volumes
+.dockerignore

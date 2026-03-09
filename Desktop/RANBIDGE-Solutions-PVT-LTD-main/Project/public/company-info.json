@@ -1,0 +1,77 @@
+{
+  "name": "Ranbridge Solutions Private Limited",
+  "description": "Leading IT solutions company providing web development, software development, cloud services, and digital transformation solutions. Expert in Python, React, Node.js, and modern web technologies.",
+  "url": "https://ranbidge.com",
+  "logo": "https://ik.imagekit.io/lg14qfjkg/RANBIDGE%20SOLUTIONS%20PRIVATE%20LIMITED.png",
+  "contact": {
+    "phone": "+918247392437",
+    "email": "info@ranbidge.com",
+    "address": "Hyderabad, Telangana, India"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/profile.php?id=61578597456959",
+    "linkedin": "https://www.linkedin.com/in/ranbidge-solutions-private-limited-company-a98983376",
+    "instagram": "https://www.instagram.com/rspl_academy?igsh=MXE3NWY3ZmNiNmtucg==",
+    "twitter": "https://x.com/RanbridgePvtLtd",
+    "youtube": "https://www.youtube.com/@RSPL-Academy"
+  },
+  "services": [
+    "Web Development",
+    "Software Development", 
+    "Mobile App Development",
+    "Cloud Solutions",
+    "Digital Marketing",
+    "IT Consulting",
+    "Python Development",
+    "React Development",
+    "Node.js Development"
+  ],
+  "keywords": [
+    "Ranbridge Solutions",
+    "Ranbridge Solutions Private Limited",
+    "IT solutions",
+    "web development",
+    "software development",
+    "Python development",
+    "React development",
+    "Node.js development",
+    "cloud services",
+    "digital transformation",
+    "mobile app development",
+    "IT consulting",
+    "Hyderabad IT company",
+    "best IT company India",
+    "software solutions",
+    "technology solutions",
+    "business solutions",
+    "enterprise software",
+    "custom software",
+    "web applications",
+    "full stack development",
+    "API development",
+    "database solutions",
+    "UI/UX design",
+    "frontend development",
+    "backend development"
+  ],
+  "categories": [
+    "Technology",
+    "Software Development",
+    "IT Services",
+    "Web Development",
+    "Business Services",
+    "Consulting"
+  ],
+  "founding": {
+    "year": "2023",
+    "type": "Private Limited Company"
+  },
+  "headquarters": "Hyderabad, Telangana, India",
+  "target_audience": [
+    "Startups",
+    "Small Businesses", 
+    "Medium Enterprises",
+    "Large Corporations",
+    "Educational Institutions"
+  ]
+}
