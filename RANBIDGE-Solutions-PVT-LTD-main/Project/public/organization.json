@@ -1,0 +1,86 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Ranbridge Solutions Private Limited",
+  "alternateName": "Ranbridge Solutions",
+  "url": "https://ranbidge.com",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://ik.imagekit.io/lg14qfjkg/RANBIDGE%20SOLUTIONS%20PRIVATE%20LIMITED.png",
+    "width": 512,
+    "height": 512
+  },
+  "description": "Leading IT solutions company providing comprehensive web development, software development, cloud services, and digital transformation solutions for businesses of all sizes.",
+  "foundingDate": "2023",
+  "legalName": "Ranbridge Solutions Private Limited",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Hyderabad",
+    "addressLocality": "Hyderabad",
+    "addressRegion": "Telangana",
+    "addressCountry": "IN",
+    "postalCode": "500001"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+918247392437",
+    "contactType": "customer service",
+    "availableLanguage": ["English", "Hindi", "Telugu"]
+  },
+  "email": "info@ranbidge.com",
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=61578597456959",
+    "https://www.linkedin.com/in/ranbidge-solutions-private-limited-company-a98983376",
+    "https://www.instagram.com/rspl_academy?igsh=MXE3NWY3ZmNiNmtucg==",
+    "https://x.com/RanbridgePvtLtd",
+    "https://www.youtube.com/@RSPL-Academy"
+  ],
+  "services": [
+    {
+      "@type": "Service",
+      "name": "Web Development",
+      "description": "Custom web development using modern technologies like React, Node.js, and Python"
+    },
+    {
+      "@type": "Service", 
+      "name": "Software Development",
+      "description": "Tailored software solutions for business needs"
+    },
+    {
+      "@type": "Service",
+      "name": "Cloud Solutions",
+      "description": "Cloud computing and infrastructure solutions"
+    },
+    {
+      "@type": "Service",
+      "name": "Digital Marketing",
+      "description": "Comprehensive digital marketing and SEO services"
+    },
+    {
+      "@type": "Service",
+      "name": "IT Consulting",
+      "description": "Strategic IT consulting and digital transformation"
+    }
+  ],
+  "keywords": [
+    "IT solutions",
+    "web development", 
+    "software development",
+    "Python development",
+    "React development",
+    "Node.js development",
+    "cloud services",
+    "digital marketing",
+    "IT consulting",
+    "Hyderabad IT company",
+    "technology solutions",
+    "business solutions",
+    "enterprise software"
+  ],
+  "areaServed": "India",
+  "knowsLanguage": ["English", "Hindi", "Telugu"],
+  "employeeCount": {
+    "@type": "QuantitativeValue",
+    "value": "10-50"
+  }
+}

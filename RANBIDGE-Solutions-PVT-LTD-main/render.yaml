@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: ranbidge-solutions-website
+    env: static
+    buildCommand: chmod +x render-build.sh && ./render-build.sh
+    publishDir: Project/dist
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-XSS-Protection
+        value: 1; mode=block
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: GEMINI_API_KEY
+        sync: false

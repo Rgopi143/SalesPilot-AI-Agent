@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>Ranbridge Solutions</ShortName>
+  <Description>Search Ranbridge Solutions - IT Services, Web Development, Software Solutions</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="32" height="32" type="image/png">
+    https://ik.imagekit.io/lg14qfjkg/RANBIDGE%20SOLUTIONS%20PRIVATE%20LIMITED.png
+  </Image>
+  <Url type="text/html" method="get" template="https://ranbidge.com/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://ranbidge.com/opensearch.xml"/>
+  <Developer>Ranbridge Solutions Private Limited</Developer>
+  <Attribution>© 2024 Ranbridge Solutions Private Limited</Attribution>
+  <SyndicationRight>© 2024 Ranbridge Solutions Private Limited</SyndicationRight>
+  <Adult>false</Adult>
+  <Language>en-us</Language>
+  <OutputEncoding>UTF-8</OutputEncoding>
+  <Tags>
+    <Tag term="IT Solutions" label="IT Services and Solutions"/>
+    <Tag term="Web Development" label="Web Development Services"/>
+    <Tag term="Software Development" label="Software Development"/>
+    <Tag term="Python Development" label="Python Development Services"/>
+    <Tag term="React Development" label="React Development Services"/>
+    <Tag term="Cloud Services" label="Cloud Computing Solutions"/>
+    <Tag term="Digital Marketing" label="Digital Marketing Services"/>
+  </Tags>
+  <Query role="example" searchTerms="web development"/>
+  <Query role="example" searchTerms="software solutions"/>
+  <Query role="example" searchTerms="IT consulting"/>
+  <Query role="example" searchTerms="Python development"/>
+  <Query role="example" searchTerms="React development"/>
+</OpenSearchDescription>
