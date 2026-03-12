@@ -129,19 +129,23 @@ const Hero: React.FC = () => {
           className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
         >
           <a
-            href="#about"
+            href="about"
             className="px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold
               bg-gradient-to-r from-blue-500 to-indigo-500
               shadow-lg shadow-blue-500/30
-              hover:shadow-indigo-500/40 transition-all
-              flex items-center justify-center gap-2 text-sm sm:text-base"
+              hover:shadow-indigo-500/40 hover:shadow-2xl
+              hover:scale-105 hover:-translate-y-1
+              transition-all duration-300 ease-out
+              flex items-center justify-center gap-2 text-sm sm:text-base
+              hover:from-blue-600 hover:to-indigo-600
+              active:scale-95"
           >
             Get Started
             <ArrowRight size={20} className="sm:size-18" />
           </a>
 
           <a
-            href="#services"
+            href="services"
             className="px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold
               border border-white/30 bg-white/10 backdrop-blur-md
               hover:bg-white/20 transition-all text-sm sm:text-base"

@@ -98,7 +98,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-slate-800 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-slate-400 text-xs sm:text-sm">
-            <span> 2025 Ranbidge Solutions Pvt Ltd. All rights reserved.</span>
+            <span> &copy; 2025 - 26 Ranbidge Solutions Pvt Ltd. All rights reserved.</span>
             <span className="hidden sm:inline">•</span>
             <Link 
               to="/privacy-policy" 
