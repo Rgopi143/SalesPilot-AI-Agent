@@ -5,7 +5,6 @@ import { connectDB, disconnectDB } from '../database/connection';
 // Lead Services
 export class LeadService {
   static async getAllLeads(): Promise<ILead[]> {
-    await connectDB();
     try {
       const leads = await Lead.find().sort({ lastContact: -1 });
       return leads;
@@ -16,7 +15,6 @@ export class LeadService {
   }
 
   static async getLeadById(id: string): Promise<ILead | null> {
-    await connectDB();
     try {
       const lead = await Lead.findById(id);
       return lead;
@@ -27,7 +25,6 @@ export class LeadService {
   }
 
   static async createLead(leadData: Partial<ILead>): Promise<ILead> {
-    await connectDB();
     try {
       const lead = new Lead(leadData);
       const savedLead = await lead.save();
@@ -39,7 +36,6 @@ export class LeadService {
   }
 
   static async updateLead(id: string, leadData: Partial<ILead>): Promise<ILead | null> {
-    await connectDB();
     try {
       const updatedLead = await Lead.findByIdAndUpdate(
         id, 
@@ -54,7 +50,6 @@ export class LeadService {
   }
 
   static async deleteLead(id: string): Promise<boolean> {
-    await connectDB();
     try {
       await Lead.findByIdAndDelete(id);
       return true;
@@ -65,7 +60,6 @@ export class LeadService {
   }
 
   static async searchLeads(query: string): Promise<ILead[]> {
-    await connectDB();
     try {
       const leads = await Lead.find({
         $or: [
@@ -82,7 +76,6 @@ export class LeadService {
   }
 
   static async getLeadsByStatus(status: string): Promise<ILead[]> {
-    await connectDB();
     try {
       const leads = await Lead.find({ status }).sort({ lastContact: -1 });
       return leads;
@@ -96,7 +89,6 @@ export class LeadService {
 // AgentLog Services
 export class AgentLogService {
   static async createLog(logData: Partial<IAgentLog>): Promise<IAgentLog> {
-    await connectDB();
     try {
       const log = new AgentLog(logData);
       const savedLog = await log.save();
@@ -108,7 +100,6 @@ export class AgentLogService {
   }
 
   static async getLogsByLeadId(leadId: string): Promise<IAgentLog[]> {
-    await connectDB();
     try {
       const logs = await AgentLog.find({ leadId }).sort({ timestamp: -1 });
       return logs;
@@ -119,7 +110,6 @@ export class AgentLogService {
   }
 
   static async getAllLogs(): Promise<IAgentLog[]> {
-    await connectDB();
     try {
       const logs = await AgentLog.find().sort({ timestamp: -1 });
       return logs;
@@ -130,7 +120,6 @@ export class AgentLogService {
   }
 
   static async clearLogs(): Promise<boolean> {
-    await connectDB();
     try {
       await AgentLog.deleteMany({});
       return true;
@@ -144,7 +133,6 @@ export class AgentLogService {
 // Database initialization
 export const initializeDatabase = async () => {
   try {
-    await connectDB();
     console.log('Database initialized successfully');
     
     // Create sample data if database is empty

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Lead, AgentLog, AgentResponse } from './types';
 import { MOCK_LEADS } from './constants';
+import { LeadService, AgentLogService } from './services/apiService';
 import { LeadList } from './components/LeadList';
 import { LeadDetails } from './components/LeadDetails';
 import { AgentLogs } from './components/AgentLogs';
@@ -20,7 +21,7 @@ import { motion, AnimatePresence } from 'motion/react';
 type View = 'dashboard' | 'leads' | 'conversations' | 'agents' | 'logs' | 'integrations' | 'settings';
 
 export default function App() {
-  const [leads] = useState<Lead[]>(MOCK_LEADS);
+  const [leads, setLeads] = useState<Lead[]>(MOCK_LEADS);
   const [selectedLead, setSelectedLead] = useState<Lead | null>(MOCK_LEADS[0]);
   const [logs, setLogs] = useState<AgentLog[]>([]);
   const [results, setResults] = useState<Record<string, AgentResponse>>({});
@@ -74,25 +75,73 @@ export default function App() {
     };
   }, [activeView]);
 
+  // Load data from database on mount
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        console.log('Loading data from API...');
+        
+        // Load leads from API
+        const dbLeads = await LeadService.getAllLeads();
+        console.log('API Response - Leads:', dbLeads);
+        
+        if (Array.isArray(dbLeads) && dbLeads.length > 0) {
+          console.log('Setting leads from API:', dbLeads.length, 'leads found');
+          setLeads(dbLeads);
+          setSelectedLead(dbLeads[0]);
+        } else {
+          console.log('No leads from API, using mock data');
+          setLeads(MOCK_LEADS);
+          setSelectedLead(MOCK_LEADS[0]);
+        }
+
+        // Load logs from API
+        const dbLogs = await AgentLogService.getAllLogs();
+        console.log('API Response - Logs:', dbLogs);
+        setLogs(Array.isArray(dbLogs) ? dbLogs : []);
+        
+        console.log('Successfully loaded data from API');
+      } catch (error) {
+        console.error('Failed to load data from API:', error);
+        console.log('Using mock data fallback');
+        // Keep using mock data if API fails
+        setLeads(MOCK_LEADS);
+        setSelectedLead(MOCK_LEADS[0]);
+        setLogs([]);
+      }
+    };
+
+    loadData();
+  }, []);
+
   const processLead = async (lead: Lead) => {
-    // ... same processing logic ...
     if (isProcessing) return;
     setIsProcessing(true);
     setLogs([]);
     setShowSideLogs(true); // Show logs when processing starts
+    
     try {
       const result = await processLeadOrchestration(
         lead,
         { currentDate: new Date().toISOString(), systemVersion: '1.0.0-stable' },
-        (logPart) => {
-          const newLog: AgentLog = {
-            id: Math.random().toString(36).substr(2, 9),
-            ...logPart,
-            timestamp: new Date().toISOString()
-          };
-          setLogs(prev => [...prev, newLog]);
+        async (log) => {
+          const logEntry = { ...log, id: Date.now().toString(), timestamp: new Date().toISOString() };
+          setLogs(prev => [...prev, logEntry]);
+          
+          // Save log to database
+          try {
+            await AgentLogService.createLog({
+              agent: log.agent,
+              status: log.status,
+              detail: log.detail,
+              data: log.data
+            });
+          } catch (dbError) {
+            console.error('Failed to save log to database:', dbError);
+          }
         }
       );
+      
       if (result) {
         setResults(prev => ({ ...prev, [lead.id]: result as AgentResponse }));
       }
@@ -103,8 +152,15 @@ export default function App() {
     }
   };
 
-  const clearLogs = () => {
-    setLogs([]);
+  const clearLogs = async () => {
+    try {
+      await AgentLogService.clearLogs();
+      setLogs([]);
+    } catch (error) {
+      console.error('Failed to clear logs:', error);
+      // Fallback to local state
+      setLogs([]);
+    }
   };
 
   const closeSideLogs = () => {
@@ -142,7 +198,7 @@ export default function App() {
         return <AgentLogs logs={logs} onClear={clearLogs} showCloseButton={false} />;
       case 'leads':
         return (
-          <div className="flex-1 flex overflow-hidden lg:flex-row flex-col relative">
+          <div className="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl overflow-hidden flex overflow-hidden lg:flex-row flex-col relative">
             <div className="w-80 flex-shrink-0 border-r border-zinc-900">
               <LeadList 
                 leads={leads} 
@@ -151,7 +207,7 @@ export default function App() {
                 isProcessing={isProcessing}
               />
             </div>
-            <div className="flex-1 overflow-hidden relative">
+            <div className="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl overflow-hidden overflow-hidden relative">
               <AnimatePresence mode="wait">
                 {selectedLead ? (
                   <motion.div
@@ -265,7 +321,7 @@ export default function App() {
           </div>
         </div>
         
-        <nav className="flex-1 px-3 space-y-1 relative z-10">
+        <nav className="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl overflow-hidden px-3 space-y-1 relative z-10">
           {[
             { id: 'dashboard', icon: LayoutDashboard, label: 'Dashboard', badge: null },
             { id: 'leads', icon: Users, label: 'Leads', badge: '128' },
@@ -307,7 +363,7 @@ export default function App() {
 
         <div className="mt-auto px-6 pt-8 border-t border-zinc-900 space-y-6 relative z-10">
           <motion.div 
-            className="flex items-center gap-3 p-3 rounded-xl glass-card-hover cursor-pointer"
+            className="flex items-center gap-3 p-3 rounded-xl bg-zinc-900/50 backdrop-blur-md border border-zinc-800 cursor-pointer"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => setShowProfile(true)}
@@ -357,7 +413,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* Main Content Area */}
-      <main className="flex-1 flex flex-col overflow-hidden" data-scrollable="main-content">
+      <main className="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl overflow-hidden flex flex-col overflow-hidden" data-scrollable="main-content">
         <header className="h-16 border-b border-zinc-900 flex items-center justify-between px-8 bg-zinc-950/50 backdrop-blur-md z-10">
            <div className="flex items-center gap-6">
               <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400">
@@ -383,7 +439,7 @@ export default function App() {
            </div>
         </header>
 
-        <div className="flex-1 overflow-hidden relative">
+        <div className="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl overflow-hidden overflow-hidden relative">
            <AnimatePresence mode="wait">
              <motion.div
                key={activeView}

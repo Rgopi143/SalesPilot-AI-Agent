@@ -145,7 +145,7 @@ export const DashboardView: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
-            className="stat-card glass-card-hover group"
+            className="stat-card bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-brand/20 hover:border-brand/50 group"
           >
             <div className="flex justify-between items-start mb-4">
               <div className={`p-3 rounded-xl bg-zinc-800 border border-zinc-700 ${stat.color} relative`}>

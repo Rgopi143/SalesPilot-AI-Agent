@@ -116,7 +116,7 @@ export const ProfileView: React.FC<ProfileViewProps> = ({ onClose }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
-            className="glass-card p-4 text-center"
+            className="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl overflow-hidden p-4 text-center"
           >
             <div className="flex justify-center mb-2">
               <div className="p-2 rounded-lg bg-brand/20 text-brand">
@@ -134,7 +134,7 @@ export const ProfileView: React.FC<ProfileViewProps> = ({ onClose }) => {
       </div>
 
       {/* Bio Section */}
-      <div className="glass-card p-6">
+      <div className="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl overflow-hidden p-6">
         <h3 className="text-lg font-black text-white mb-4">About</h3>
         <p className="text-zinc-300 leading-relaxed">
           Passionate about AI and sales automation, leading the development of cutting-edge solutions 
@@ -166,7 +166,7 @@ export const ProfileView: React.FC<ProfileViewProps> = ({ onClose }) => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: i * 0.05 }}
-            className="flex items-center gap-4 p-4 glass-card rounded-xl"
+            className="flex items-center gap-4 p-4 bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl overflow-hidden rounded-xl"
           >
             <div className="p-2 rounded-lg bg-zinc-800 border border-zinc-700">
               <activity.icon className="w-5 h-5 text-zinc-400" />
@@ -192,7 +192,7 @@ export const ProfileView: React.FC<ProfileViewProps> = ({ onClose }) => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: i * 0.05 }}
-            className={`glass-card p-6 rounded-xl border ${
+            className={`bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl overflow-hidden p-6 rounded-xl border ${
               achievement.unlocked ? 'border-brand/30' : 'border-zinc-800 opacity-60'
             }`}
           >
@@ -233,7 +233,7 @@ export const ProfileView: React.FC<ProfileViewProps> = ({ onClose }) => {
       <h3 className="text-lg font-black text-white">Security Settings</h3>
       
       <div className="space-y-4">
-        <div className="glass-card p-6">
+        <div className="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl overflow-hidden p-6">
           <div className="flex items-center justify-between mb-4">
             <div>
               <h4 className="font-bold text-white">Two-Factor Authentication</h4>
@@ -245,7 +245,7 @@ export const ProfileView: React.FC<ProfileViewProps> = ({ onClose }) => {
           </div>
         </div>
 
-        <div className="glass-card p-6">
+        <div className="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl overflow-hidden p-6">
           <div className="flex items-center justify-between mb-4">
             <div>
               <h4 className="font-bold text-white">Password</h4>
@@ -257,7 +257,7 @@ export const ProfileView: React.FC<ProfileViewProps> = ({ onClose }) => {
           </div>
         </div>
 
-        <div className="glass-card p-6">
+        <div className="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl overflow-hidden p-6">
           <div className="flex items-center justify-between mb-4">
             <div>
               <h4 className="font-bold text-white">Active Sessions</h4>
@@ -269,7 +269,7 @@ export const ProfileView: React.FC<ProfileViewProps> = ({ onClose }) => {
           </div>
         </div>
 
-        <div className="glass-card p-6">
+        <div className="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl overflow-hidden p-6">
           <div className="flex items-center justify-between mb-4">
             <div>
               <h4 className="font-bold text-white">API Keys</h4>

@@ -349,7 +349,7 @@ export const SettingsView: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <motion.div
           whileHover={{ scale: 1.02 }}
-          className="glass-card p-6 cursor-pointer"
+          className="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl overflow-hidden p-6 cursor-pointer"
         >
           <div className="flex items-center gap-4 mb-4">
             <div className="p-3 rounded-xl bg-red-500/20 text-red-500">
@@ -364,7 +364,7 @@ export const SettingsView: React.FC = () => {
 
         <motion.div
           whileHover={{ scale: 1.02 }}
-          className="glass-card p-6 cursor-pointer"
+          className="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl overflow-hidden p-6 cursor-pointer"
         >
           <div className="flex items-center gap-4 mb-4">
             <div className="p-3 rounded-xl bg-blue-500/20 text-blue-500">
@@ -379,7 +379,7 @@ export const SettingsView: React.FC = () => {
 
         <motion.div
           whileHover={{ scale: 1.02 }}
-          className="glass-card p-6 cursor-pointer"
+          className="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl overflow-hidden p-6 cursor-pointer"
         >
           <div className="flex items-center gap-4 mb-4">
             <div className="p-3 rounded-xl bg-green-500/20 text-green-500">

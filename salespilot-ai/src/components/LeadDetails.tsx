@@ -153,7 +153,7 @@ export const LeadDetails: React.FC<LeadDetailsProps> = ({ lead, onProcess, isPro
           
           {/* Lead Score Card */}
           <motion.div 
-            className="glass-card p-4 text-center"
+            className="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl overflow-hidden p-4 text-center"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
